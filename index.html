@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Zenith DevOps Academy | Multi-Cloud & Containerization Mastery</title>
+  <!-- Google Fonts & modern CSS reset -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    /* gradient hero background */
+    .hero {
+      background: linear-gradient(135deg, #0b1120 0%, #111827 100%);
+      color: white;
+      padding: 3rem 1.5rem 4rem 1.5rem;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .hero-content {
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background: rgba(59,130,246,0.2);
+      backdrop-filter: blur(4px);
+      padding: 0.3rem 1rem;
+      border-radius: 100px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      border: 1px solid rgba(59,130,246,0.5);
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      background: linear-gradient(to right, #ffffff, #a5c9ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .hero-sub {
+      font-size: 1.2rem;
+      color: #cbd5e6;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .stat-item {
+      background: rgba(255,255,255,0.05);
+      padding: 0.7rem 1.5rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+    }
+
+    .stat-item i {
+      margin-right: 8px;
+      color: #3b82f6;
+    }
+
+    /* section titles */
+    .section-title {
+      font-size: 1.9rem;
+      font-weight: 700;
+      margin: 2.5rem 0 1.2rem 0;
+      letter-spacing: -0.3px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-left: 5px solid #3b82f6;
+      padding-left: 1.2rem;
+    }
+
+    .section-title i {
+      color: #3b82f6;
+      font-size: 1.8rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* project card */
+    .project-card {
+      background: white;
+      border-radius: 1.2rem;
+      padding: 1.3rem 1.5rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.03), 0 1px 2px rgba(0,0,0,0.05);
+      border: 1px solid #e9eef3;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 25px -12px rgba(0,0,0,0.1);
+      border-color: #cbdffc;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.8rem;
+    }
+
+    .project-id {
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: #eef2ff;
+      padding: 0.2rem 0.7rem;
+      border-radius: 40px;
+      color: #1e40af;
+    }
+
+    .tech-tag {
+      font-size: 0.7rem;
+      background: #f1f5f9;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      color: #334155;
+      font-weight: 500;
+    }
+
+    .project-title {
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin: 0.5rem 0 0.6rem 0;
+      line-height: 1.4;
+    }
+
+    .project-desc {
+      color: #334155;
+      font-size: 0.85rem;
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    .icon-cloud {
+      display: flex;
+      gap: 8px;
+      margin-top: 0.5rem;
+      font-size: 0.75rem;
+      color: #3b82f6;
+      border-top: 1px solid #ecf3fa;
+      padding-top: 0.8rem;
+    }
+
+    .icon-cloud i {
+      font-size: 0.9rem;
+    }
+
+    footer {
+      background: #0f172a;
+      color: #94a3b8;
+      padding: 2rem 1rem;
+      text-align: center;
+      margin-top: 3rem;
+      border-radius: 2rem 2rem 0 0;
+    }
+
+    @media (max-width: 700px) {
+      h1 { font-size: 2rem; }
+      .section-title { font-size: 1.5rem; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .container { padding: 0 1rem; }
+    }
+
+    .capstone-highlight {
+      background: linear-gradient(120deg, #fef9e3, #fff6e0);
+      border-left: 4px solid #f59e0b;
+    }
+
+    .capstone-highlight .project-title {
+      color: #b45309;
+    }
+
+    .filter-section {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .search-box {
+      background: white;
+      padding: 0.5rem 1rem;
+      border-radius: 60px;
+      border: 1px solid #e2e8f0;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .search-box i {
+      color: #64748b;
+    }
+
+    .search-box input {
+      border: none;
+      outline: none;
+      font-size: 0.9rem;
+      width: 200px;
+      background: transparent;
+    }
+  </style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container hero-content">
+    <span class="badge"><i class="fas fa-cloud-upload-alt"></i> 55+ real-world DevOps & Multi-Cloud projects</span>
+    <h1>Master DevOps Engineering<br>From Code to Cloud — Across AWS, Azure, GCP</h1>
+    <p class="hero-sub">Industry-aligned curriculum: CI/CD · Kubernetes · IaC · Service Mesh · Security · GitOps · Serverless</p>
+    <div class="stats">
+      <div class="stat-item"><i class="fas fa-project-diagram"></i> 55 hands-on labs</div>
+      <div class="stat-item"><i class="fas fa-cubes"></i> 5 capstone architectures</div>
+      <div class="stat-item"><i class="fas fa-chalkboard-teacher"></i> Instructor-led + self-paced</div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="app">
+  <div class="filter-section">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="searchInput" placeholder="Filter projects (e.g., Jenkins, Terraform, EKS)" autocomplete="off">
+    </div>
+    <div style="font-size:0.85rem; color:#475569;"><i class="fas fa-list-ul"></i> <span id="resultCount">55</span> projects</div>
+  </div>
+
+  <div id="projectsContainer" class="projects-grid"></div>
+</div>
+
+<footer>
+  <div class="container">
+    <p><i class="fas fa-graduation-cap"></i> Zenith Software Training — Real DevOps, Real Multi-Cloud | 50 core projects + 5 capstone integrations</p>
+    <p style="margin-top: 0.8rem; font-size:0.8rem;">All projects include architecture diagrams, step-by-step guides, and industry best practices.</p>
+  </div>
+</footer>
+
+<script>
+  // Full project dataset according to spec (50 + 5 capstones = 55)
+  const projects = [
+    // CI/CD & DevOps Pipeline (1-10)
+    { id: 1, title: "Static Website Hosting on AWS S3 bucket", description: "Host a fully static website with custom domain and CloudFront CDN.", tags: ["AWS", "S3", "Static Site"], category: "cicd" },
+    { id: 2, title: "Azure Static Web App Deployment with DevOps Pipeline", description: "Build and deploy Vue/React app using Azure DevOps YAML pipelines.", tags: ["Azure", "Static Web App", "DevOps"], category: "cicd" },
+    { id: 3, title: "GCP Cloud Run Deployment from Cloud Source Repositories", description: "CI/CD trigger from Cloud Source Repos to deploy serverless containers.", tags: ["GCP", "Cloud Run", "CI/CD"], category: "cicd" },
+    { id: 4, title: "Jenkins Pipeline for a Node.js App Deployed to AWS Elastic Beanstalk", description: "Declarative pipeline with stages: build, test, deploy to Beanstalk.", tags: ["Jenkins", "Node.js", "AWS EB"], category: "cicd" },
+    { id: 5, title: "GitLab CI/CD to Azure App Service with Auto-DevOps", description: "Auto-DevOps template deploying containerized apps to Azure App Service.", tags: ["GitLab", "Azure App Service", "Auto-DevOps"], category: "cicd" },
+    { id: 6, title: "Containerized Flask App CI/CD using GitHub Actions to Google Artifact Registry", description: "Build Docker image, push to GAR and deploy to Cloud Run.", tags: ["Flask", "GitHub Actions", "GAR"], category: "cicd" },
+    { id: 7, title: "Build a Jenkins Shared Library for Standardized Deployments", description: "Create reusable Groovy library for multi-environment deployments.", tags: ["Jenkins", "Shared Library", "Groovy"], category: "cicd" },
+    { id: 8, title: "Cross-Cloud CI/CD Trigger: GitHub Actions (AWS) triggering Azure Functions", description: "Event-driven cross-cloud: GitHub Action invokes Azure Function via webhook.", tags: ["GitHub Actions", "AWS", "Azure Functions"], category: "cicd" },
+    { id: 9, title: "Artifact Management: JFrog Artifactory / Sonatype Nexus for Docker Images", description: "Set up private Docker registry, promote images across stages.", tags: ["JFrog", "Nexus", "Artifact Management"], category: "cicd" },
+    { id: 10, title: "Infrastructure as Code Pipeline: Terraform Cloud with VCS-driven AWS Deployments", description: "Version-controlled infrastructure with remote state and approval workflows.", tags: ["Terraform Cloud", "VCS", "AWS"], category: "cicd" },
+    // Containerization & Orchestration (11-20)
+    { id: 11, title: "Dockerizing a Multi-Tier Application (React + Node + MongoDB)", description: "Write Dockerfiles for each service and orchestrate networking.", tags: ["Docker", "React", "Node", "MongoDB"], category: "container" },
+    { id: 12, title: "Docker Compose for Local Development Environment Simulation", description: "Define volumes, networks and environment variables for dev parity.", tags: ["Docker Compose", "Local Dev"], category: "container" },
+    { id: 13, title: "Amazon EKS Cluster Setup with Managed Node Groups", description: "Provision EKS cluster using eksctl and deploy sample microservice.", tags: ["EKS", "AWS", "Managed Node Groups"], category: "container" },
+    { id: 14, title: "Azure AKS Cluster with Azure Container Registry Integration", description: "ACR attached to AKS for private image deployment.", tags: ["AKS", "Azure", "ACR"], category: "container" },
+    { id: 15, title: "Google GKE Autopilot Cluster Deployment", description: "Fully managed GKE Autopilot cluster with workload deployment.", tags: ["GKE", "Autopilot", "GCP"], category: "container" },
+    { id: 16, title: "Helm Charts: Packaging Microservice across EKS and AKS", description: "Create reusable Helm chart, deploy to EKS and AKS with values.", tags: ["Helm", "Kubernetes", "Multi-cloud"], category: "container" },
+    { id: 17, title: "Kubernetes Multi-Cluster Management using ArgoCD (EKS & GKE)", description: "GitOps sync applications across two clusters with ArgoCD.", tags: ["ArgoCD", "GitOps", "EKS", "GKE"], category: "container" },
+    { id: 18, title: "Service Mesh Implementation using Istio on AKS for Traffic Splitting", description: "Canary deployments and traffic routing with Istio on Azure.", tags: ["Istio", "Service Mesh", "AKS"], category: "container" },
+    { id: 19, title: "Kubernetes Operators: Deploying a Database Operator (Postgres) on EKS", description: "Use Zalando Postgres operator to manage database clusters.", tags: ["K8s Operator", "Postgres", "EKS"], category: "container" },
+    { id: 20, title: "Pod Security Policies (PSA) Implementation across GKE and EKS", description: "Enforce Pod Security Standards and admission controllers.", tags: ["PSA", "Security", "GKE", "EKS"], category: "container" },
+    // Infrastructure as Code & Config Management (21-30)
+    { id: 21, title: "AWS Multi-Region VPC Deployment using Terraform", description: "Modular VPC with subnets, gateways across us-east-1 and eu-west-1.", tags: ["Terraform", "VPC", "Multi-region"], category: "iac" },
+    { id: 22, title: "Azure Resource Manager (ARM) Templates for a Hub-Spoke Network", description: "Hub virtual network with connectivity to spoke networks.", tags: ["ARM", "Azure", "Networking"], category: "iac" },
+    { id: 23, title: "Google Cloud Deployment Manager for a Global Load Balancer", description: "Deploy HTTP(S) load balancer with backend services.", tags: ["GCP", "Deployment Manager", "Load Balancer"], category: "iac" },
+    { id: 24, title: "Terraform Modules: Reusable Web Server Module for AWS, Azure, GCP", description: "Write provider-agnostic module for VM/instance deployments.", tags: ["Terraform Modules", "Multi-cloud"], category: "iac" },
+    { id: 25, title: "Ansible Playbooks for Post-Provisioning Configuration (Patching, Users)", description: "Ad-hoc and playbooks for system hardening and user management.", tags: ["Ansible", "Config Management"], category: "iac" },
+    { id: 26, title: "Terraform State Management using AWS S3 Backend with DynamoDB Locking", description: "Remote state with state locking for team collaboration.", tags: ["Terraform", "S3", "DynamoDB"], category: "iac" },
+    { id: 27, title: "Pulumi in Python/TypeScript for Cross-Cloud Infrastructure (AWS & GCP)", description: "Write imperative infrastructure as code using Pulumi.", tags: ["Pulumi", "Python", "Multi-cloud"], category: "iac" },
+    { id: 28, title: "Packer: Building Golden AMIs, Managed Images, and Custom Images", description: "Automate image creation across AWS, Azure, GCP.", tags: ["Packer", "Golden Images"], category: "iac" },
+    { id: 29, title: "Chef/Ansible for Compliance Hardening on Multi-cloud VMs", description: "Apply CIS benchmarks using Chef inspec and Ansible roles.", tags: ["Chef", "Ansible", "Compliance"], category: "iac" },
+    { id: 30, title: "Terragrunt for Keeping Terraform Configurations DRY across Dev/Staging/Prod", description: "Reduce duplication using Terragrunt and remote state.", tags: ["Terragrunt", "Terraform", "DRY"], category: "iac" },
+    // Monitoring, Logging & Security (31-40)
+    { id: 31, title: "Prometheus and Grafana Stack deployed on EKS for Multi-cloud Metrics", description: "Monitor EKS and external services with custom dashboards.", tags: ["Prometheus", "Grafana", "EKS"], category: "monitoring" },
+    { id: 32, title: "Azure Monitor and Application Insights for .NET Application", description: "End-to-end monitoring with live metrics and traces.", tags: ["Azure Monitor", "App Insights", ".NET"], category: "monitoring" },
+    { id: 33, title: "Google Cloud Operations Suite for GKE Logging", description: "Central logging and monitoring with Cloud Ops.", tags: ["GCP", "Operations Suite", "GKE"], category: "monitoring" },
+    { id: 34, title: "Centralized Logging: EFK Stack on AKS", description: "Elasticsearch, Fluentd, Kibana for log aggregation.", tags: ["EFK", "AKS", "Logging"], category: "monitoring" },
+    { id: 35, title: "AWS CloudTrail & Config with EventBridge for Compliance Auditing", description: "Track resource changes and trigger automated remediation.", tags: ["CloudTrail", "AWS Config", "EventBridge"], category: "monitoring" },
+    { id: 36, title: "HashiCorp Vault: Secrets Management across AWS (RDS) and Azure (SQL)", description: "Dynamic database secrets and secret rotation.", tags: ["Vault", "Secrets", "Multi-cloud"], category: "monitoring" },
+    { id: 37, title: "OpenTelemetry Collector setup for Tracing across GCP and On-Prem", description: "Unified observability with traces and metrics.", tags: ["OpenTelemetry", "Tracing"], category: "monitoring" },
+    { id: 38, title: "Falco for Runtime Security in Kubernetes (EKS & GKE)", description: "Detect anomalous activity using Falco rules.", tags: ["Falco", "Runtime Security", "K8s"], category: "monitoring" },
+    { id: 39, title: "Trivy/Clair Scanning in CI/CD for Images deployed to Azure ACR", description: "Vulnerability scanning in pipeline before push.", tags: ["Trivy", "Clair", "ACR"], category: "monitoring" },
+    { id: 40, title: "AWS WAF & Azure Front Door integration for Global Web Application Protection", description: "Web application firewall across multi-cloud endpoints.", tags: ["AWS WAF", "Azure Front Door", "Security"], category: "monitoring" },
+    // Advanced Multi-Cloud & Networking (41-50)
+    { id: 41, title: "Multi-Cloud Networking: AWS VPC Peering with Azure VNet via VPN", description: "Site-to-site VPN connectivity between clouds.", tags: ["Networking", "AWS", "Azure", "VPN"], category: "networking" },
+    { id: 42, title: "Cloudflare as a Global Load Balancer routing to GCP and AWS Backends", description: "Active-active load balancing with health checks.", tags: ["Cloudflare", "Global LB", "GCP", "AWS"], category: "networking" },
+    { id: 43, title: "Cross-Cloud Disaster Recovery: Replicating from AWS RDS to GCP Cloud SQL", description: "Database replication and failover simulation.", tags: ["DR", "RDS", "Cloud SQL"], category: "networking" },
+    { id: 44, title: "Serverless Mesh: AWS Lambda interacting with GCP Cloud Functions via API Gateway", description: "Serverless function chaining across clouds.", tags: ["Lambda", "Cloud Functions", "Serverless"], category: "networking" },
+    { id: 45, title: "Terraform Cross-Cloud Workspaces managing AWS, Azure, GCP simultaneously", description: "Single Terraform configuration with aliased providers.", tags: ["Terraform Workspaces", "Multi-cloud"], category: "networking" },
+    { id: 46, title: "Service Mesh Federation: Linking Istio on EKS with Istio on GKE", description: "Connect services across clusters with multicluster mesh.", tags: ["Istio", "Federation", "EKS", "GKE"], category: "networking" },
+    { id: 47, title: "Azure Arc enabled Kubernetes for managing on-prem and AWS EKS clusters", description: "Unified management plane with Azure Arc.", tags: ["Azure Arc", "Hybrid", "EKS"], category: "networking" },
+    { id: 48, title: "Google Anthos: Deploying to AWS EKS from GCP Console", description: "Anthos multi-cloud management on AWS.", tags: ["Anthos", "GCP", "EKS"], category: "networking" },
+    { id: 49, title: "Centralized Identity: Azure AD as SAML IdP for AWS IAM Roles", description: "Federated authentication to AWS console.", tags: ["Azure AD", "SAML", "IAM"], category: "networking" },
+    { id: 50, title: "Cost Optimization: Automated Scheduling to Shutdown Dev Environments across AWS, Azure, GCP", description: "Serverless schedulers to reduce cloud waste.", tags: ["FinOps", "Cost Optimization", "Automation"], category: "networking" },
+    // 5 Capstone Projects (51-55)
+    { id: 51, title: "Multi-Cloud E-Commerce Platform", description: "Microservices app across AWS (Primary) and GCP (DR). Terraform + ArgoCD + Prometheus + Global load balancer failover.", tags: ["Capstone", "EKS", "GKE", "GitOps", "DR"], category: "capstone" },
+    { id: 52, title: "Compliance as Code Pipeline", description: "Provision on Azure, CIS Benchmarks scanning with InSpec, Sentinel policies, auto-remediation.", tags: ["Capstone", "Azure", "Sentinel", "InSpec"], category: "capstone" },
+    { id: 53, title: "AI/ML Ops (MLOps) Pipeline", description: "Kubeflow on EKS, training on GCP Vertex AI, store artifacts in Azure Blob, inference API across clouds with service mesh.", tags: ["Capstone", "MLOps", "Kubeflow", "Vertex AI"], category: "capstone" },
+    { id: 54, title: "Serverless Hybrid Event Mesh", description: "S3 → Lambda → Azure Service Bus → GCP Cloud Function → BigQuery. Event-driven multi-cloud processing.", tags: ["Capstone", "Event-Driven", "Serverless"], category: "capstone" },
+    { id: 55, title: "Internal Developer Platform (IDP) using Backstage", description: "Self-service portal with Terraform Cloud, Kubernetes providers, monitoring dashboards. One-click namespace + monitoring.", tags: ["Capstone", "Backstage", "IDP", "Terraform"], category: "capstone" }
+  ];
+
+  // Helper to assign icon based on tags / category (visual flair)
+  function getIconSet(project) {
+    if (project.tags.some(t => t.includes("AWS") || t.includes("EKS"))) return "fab fa-aws";
+    if (project.tags.some(t => t.includes("Azure") || t.includes("AKS"))) return "fab fa-microsoft";
+    if (project.tags.some(t => t.includes("GCP") || t.includes("GKE"))) return "fab fa-google";
+    if (project.category === "capstone") return "fas fa-crown";
+    if (project.tags.some(t => t.includes("Terraform") || t.includes("Pulumi"))) return "fas fa-code-branch";
+    if (project.tags.some(t => t.includes("Kubernetes") || t.includes("K8s"))) return "fas fa-cubes";
+    if (project.tags.some(t => t.includes("Jenkins") || t.includes("CI/CD"))) return "fas fa-sync-alt";
+    return "fas fa-cloud";
+  }
+
+  function renderProjects(filterText = "") {
+    const lowerFilter = filterText.toLowerCase();
+    const filtered = projects.filter(p => 
+      p.title.toLowerCase().includes(lowerFilter) || 
+      p.description.toLowerCase().includes(lowerFilter) ||
+      p.tags.some(tag => tag.toLowerCase().includes(lowerFilter))
+    );
+    
+    const container = document.getElementById("projectsContainer");
+    const countSpan = document.getElementById("resultCount");
+    countSpan.innerText = filtered.length;
+    
+    if (filtered.length === 0) {
+      container.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:3rem;"><i class="fas fa-frown"></i> No matching projects. Try "Kubernetes" or "Terraform"</div>`;
+      return;
+    }
+    
+    container.innerHTML = filtered.map(proj => {
+      const isCapstone = proj.category === "capstone";
+      const cardClass = isCapstone ? "project-card capstone-highlight" : "project-card";
+      const iconClass = getIconSet(proj);
+      const tagDisplay = proj.tags.slice(0, 3).map(t => `<span class="tech-tag">${t}</span>`).join('');
+      
+      return `
+        <div class="${cardClass}">
+          <div class="card-header">
+            <span class="project-id">#${proj.id}</span>
+            <span class="tech-tag"><i class="${iconClass}"></i> ${proj.category === "capstone" ? "🏆 Capstone" : proj.tags[0] || "DevOps"}</span>
+          </div>
+          <div class="project-title">${proj.title}</div>
+          <div class="project-desc">${proj.description}</div>
+          <div class="icon-cloud">
+            <i class="fas fa-tags"></i> ${tagDisplay}
+            ${isCapstone ? '<i class="fas fa-star" style="margin-left:auto; color:#f59e0b;"></i>' : ''}
+          </div>
+        </div>
+      `;
+    }).join('');
+  }
+
+  // search listener
+  const searchInput = document.getElementById("searchInput");
+  searchInput.addEventListener("input", (e) => {
+    renderProjects(e.target.value);
+  });
+  
+  // initial render
+  renderProjects("");
+</script>
+</body>
+</html>
